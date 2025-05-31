@@ -15,7 +15,7 @@ const JobProviderDashboard = () => {
       try {
         setLoadingJobs(true)
         const token = localStorage.getItem("token")
-        const response = await fetch("http://localhost:8000/jobs/provider", {
+        const response = await fetch("https://work-expo.vercel.app/jobs/provider", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
