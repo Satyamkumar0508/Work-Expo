@@ -3,7 +3,7 @@
 import { createContext, useState, useContext, useEffect } from "react"
 import axios from "axios"
 
-const API_URL = "http://localhost:8000" // Change this to your backend URL
+const API_URL = "https://work-expo.vercel.app" // Change this to your backend URL
 
 const AuthContext = createContext()
 
