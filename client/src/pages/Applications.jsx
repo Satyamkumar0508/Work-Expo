@@ -18,7 +18,7 @@ const Applications = () => {
       try {
         const token = localStorage.getItem("token")
         // Fetch job details from backend
-        const jobRes = await fetch(`http://localhost:8000/jobs/${jobId}`, {
+        const jobRes = await fetch(`https://work-expo.vercel.app/jobs/${jobId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (!jobRes.ok) throw new Error("Job not found")
@@ -26,7 +26,7 @@ const Applications = () => {
         setJob(jobData)
 
         // Fetch applications for this job
-        const appRes = await fetch(`http://localhost:8000/applications/job/${jobId}`, {
+        const appRes = await fetch(`https://work-expo.vercel.app/applications/job/${jobId}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         if (!appRes.ok) throw new Error("Failed to load applications")
