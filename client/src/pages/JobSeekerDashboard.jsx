@@ -24,7 +24,7 @@ const JobSeekerDashboard = () => {
         let jobsData = []
         if (viewMode === "available") {
           // Fetch all open jobs with optional filters
-          let url = `http://localhost:8000/jobs?status=open`
+          let url = `https://work-expo.vercel.app/jobs?status=open`
           if (locationFilter !== "all") url += `&location=${encodeURIComponent(locationFilter)}`
           if (categoryFilter !== "all") url += `&category=${encodeURIComponent(categoryFilter)}`
           const response = await fetch(url, {
@@ -33,7 +33,7 @@ const JobSeekerDashboard = () => {
           jobsData = await response.json()
         } else if (viewMode === "matching") {
           // Fetch matching jobs
-          const response = await fetch("http://localhost:8000/jobs/matching", {
+          const response = await fetch("https://work-expo.vercel.app/jobs/matching", {
             headers: { Authorization: `Bearer ${token}` },
           })
           jobsData = await response.json()
@@ -45,13 +45,13 @@ const JobSeekerDashboard = () => {
           }
         } else {
           // Fetch applications
-          const response = await fetch("http://localhost:8000/applications/seeker", {
+          const response = await fetch("https://work-expo.vercel.app/applications/seeker", {
             headers: { Authorization: `Bearer ${token}` },
           })
           const applicationsData = await response.json()
           setApplications(applicationsData || [])
           // Get job details for each application
-          const jobsResponse = await fetch("http://localhost:8000/jobs?status=open", {
+          const jobsResponse = await fetch("https://work-expo.vercel.app/jobs?status=open", {
             headers: { Authorization: `Bearer ${token}` },
           })
           const availableJobs = await jobsResponse.json()
