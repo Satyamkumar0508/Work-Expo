@@ -38,7 +38,7 @@ const PostJob = () => {
 
       // Get JWT token from localStorage
       const token = localStorage.getItem("token")
-      const response = await fetch("http://localhost:8000/jobs", {
+      const response = await fetch("https://work-expo.vercel.app/jobs", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
